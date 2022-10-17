@@ -1,0 +1,32 @@
+{% extends 'home/index.html' %}
+
+{% block title_pagina %}
+<title>Usuarios</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %}
+Usuarios
+{% endblock h1_texto_header %}
+
+
+{% block index_contenido %}
+<a class="navbar-brand" href = {% url 'input_user' %}>Registrar nuevo usuario </a>
+<p>Listado de usuarios:</p>
+
+{% comment %} Creamos un buscador con un formulario ... para buscar se usa un GET{% endcomment %}
+<form action= {% url 'view_user' %} method = "GET"> 
+       {{formulario}}  
+       <button>Buscar</button>
+</form>
+<p>
+{% if personas %}
+        {% for persona  in  personas %}
+                <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
+        {% endfor %}
+{% else %}
+        <p>No se encontraron personas</p>
+{% endif %}
+
+</p>
+        {% endblock index_contenido %}
+    

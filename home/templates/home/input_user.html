@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+
+{% block title_pagina %}
+<title>Ingresar usuario</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido  %}
+<form action= {% url 'input_user' %} method = "POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    
+    <button>Crear</button>
+</form>
+{% endblock mi_contenido  %}
+
+
+
