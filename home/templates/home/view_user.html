@@ -13,7 +13,7 @@ Usuarios
 <a class="navbar-brand" href = {% url 'input_user' %}>Registrar nuevo usuario </a>
 <p>Listado de usuarios:</p>
 
-{% comment %} Creamos un buscador con un formulario ... para buscar se usa un GET{% endcomment %}
+
 <form action= {% url 'view_user' %} method = "GET"> 
        {{formulario}}  
        <button>Buscar</button>
@@ -21,7 +21,7 @@ Usuarios
 <p>
 {% if personas %}
         {% for persona  in  personas %}
-                <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
+                <li>{{persona.nombre}} {{persona.apellido}} <br>Edad: {{persona.edad}} <br>Fecha de nacimiento: {{persona.fecha_nacimiento}}</li>
         {% endfor %}
 {% else %}
         <p>No se encontraron personas</p>
