@@ -1,32 +1,28 @@
-{% extends 'home/index.html' %}
+{% extends 'padres/base.html' %}
 
 {% block title_pagina %}
-<title>Usuarios</title>
+        <title>Oferta de servicios</title>
 {% endblock title_pagina %}
 
-{% block h1_texto_header %}
-Usuarios
-{% endblock h1_texto_header %}
 
+{% block mi_contenido %} 
+        <a class="navbar-brand" href = {% url 'input_user' %}>Crear Servicio </a> 
+        <p>Listado de servicios:</p>
+        <p>
+        {% if object_list %}
+                {% for user  in  object_list %}
+                        <li>
+                                {{user}}
+                               
+                                        {% comment %} <a  href = {% url 'editar_mascota' mascota.id %}>Editar </a>  {% endcomment %}
+                                                           {% comment %} boton editar {% endcomment %}
+                                        {% comment %} <a  href = {% url 'eliminar_mascota' mascota.id %}>Eliminar </a>  {% endcomment %}
+                                                           {% comment %} boton eliminar {% endcomment %}
+                        </li>
+                {% endfor %}
+        {% else %}
+                <p>No se encontro el servicio buscado</p>
+        {% endif %}
+        </p>
+{% endblock mi_contenido %}
 
-{% block index_contenido %}
-<a class="navbar-brand" href = {% url 'input_user' %}>Registrar nuevo usuario </a>
-<p>Listado de usuarios:</p>
-
-
-<form action= {% url 'view_user' %} method = "GET"> 
-       {{formulario}}  
-       <button>Buscar</button>
-</form>
-<p>
-{% if personas %}
-        {% for persona  in  personas %}
-                <li>{{persona.nombre}} {{persona.apellido}} <br>Edad: {{persona.edad}} <br>Fecha de nacimiento: {{persona.fecha_nacimiento}}</li>
-        {% endfor %}
-{% else %}
-        <p>No se encontraron personas</p>
-{% endif %}
-
-</p>
-        {% endblock index_contenido %}
-    

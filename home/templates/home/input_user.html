@@ -2,7 +2,7 @@
 
 
 {% block title_pagina %}
-<title>Ingresar usuario</title>
+<title>Ingresar Usuario</title>
 {% endblock title_pagina %}
 
 
@@ -10,7 +10,7 @@
 <form action= {% url 'input_user' %} method = "POST">
     {% csrf_token %}
     <table>
-        {{formulario}}
+        {{form}}            
     </table>
     
     <button>Crear</button>
