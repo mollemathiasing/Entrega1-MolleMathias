@@ -6,5 +6,6 @@ urlpatterns = [
     path('view_servs/', views.ViewServs.as_view(), name = 'view_servs'),
     path('input_servs/', views.InputServs.as_view(), name = 'input_servs'),
     path('edit_servs/<int:pk>', views.EditServs.as_view(), name = 'edit_servs'),    
-    path('delete_servs/<int:pk>', views.DeleteServs.as_view(), name = 'delete_servs')
+    path('delete_servs/<int:pk>', views.DeleteServs.as_view(), name = 'delete_servs'),
+    path('view_serv/<int:pk>', views.ViewServ.as_view(), name = 'view_serv'),                      
 ]

@@ -1,0 +1,23 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+        <title>Servicio</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %} 
+       <p>
+        
+            <li>Nombre: {{servs.nombre}}</li>
+            <li>Apellido: {{servs.apellido}}</li>
+            <li>Profesion: {{servs.profesion}}</li>
+            <li>Servicio_ofrecido: {{servs.servicio_ofrecido}}</li>
+            <li>Email de contacto: {{servs.email}}</li>
+            <li>Descripción: {{servs.descripcion | safe}}</li>
+            
+        </p>        
+        
+
+        
+{% endblock mi_contenido %}
+

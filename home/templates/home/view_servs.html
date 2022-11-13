@@ -8,19 +8,28 @@
 {% block mi_contenido %} 
         <a class="navbar-brand" href = {% url 'input_servs' %}>Crear Servicio </a> 
         <p>Listado de servicios:</p>
+
+        <form action= {% url 'view_servs' %} method = "GET"> 
+                {{formulario}}  
+                <button>Buscar</button>
+                </form> 
+                <p>
+        
+        
         <p>
         {% if object_list %}
                 {% for servs  in  object_list %}
                         <li>
-                                {{servs}}
-                               
+                                
+                                        <a  href = {% url 'view_serv' servs.id %}> {{servs}} </a> 
+
                                         <a  href = {% url 'edit_servs' servs.id %}>Editar </a> 
                                                            
                                         <a  href = {% url 'delete_servs' servs.id %}>Eliminar </a> 
                                                            
                 {% endfor %}
         {% else %}
-                <p>No se encontro el servicio buscado</p>
+                <p>No se encontro el campo buscado</p>
         {% endif %}
         </p>
 {% endblock mi_contenido %}
