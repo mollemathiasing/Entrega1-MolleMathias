@@ -3,6 +3,8 @@ from home import views
 
 urlpatterns = [
     path ('', views.index, name = 'index'),
-    path('view_user/', views.ViewUser.as_view(), name = 'view_user'),
-    path('input_user/', views.InputUser.as_view(), name = 'input_user')
+    path('view_servs/', views.ViewServs.as_view(), name = 'view_servs'),
+    path('input_servs/', views.InputServs.as_view(), name = 'input_servs'),
+    path('edit_servs/<int:pk>', views.EditServs.as_view(), name = 'edit_servs'),    
+    path('delete_servs/<int:pk>', views.DeleteServs.as_view(), name = 'delete_servs')
 ]

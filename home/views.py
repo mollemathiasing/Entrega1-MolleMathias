@@ -1,6 +1,5 @@
-from home.models import User
-from django.shortcuts import render, redirect   
-# from home.forms import BusquedaPersonaFormulario, PersonaFormulario
+from home.models import Servs
+from django.shortcuts import render   
 
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -9,32 +8,40 @@ def index(request):
     
     return render(request, 'home/index.html')
 
-class ViewUser(ListView):
-    model = User
-    template_name =  'home/view_user.html'
-
-class InputUser(CreateView):
-    model = User
-    success_url = '/view_user'
-    template_name = 'home/input_user.html'
-    fields = [ 'nombre', 'apellido', 'edad', 'fecha_nacimiento', 'profesion']
+class ViewServs(ListView):
+    model = Servs
+    template_name =  'home/view_servs.html'
     
-
-
-
-
-
-# def view_user(request):
     
-        
-#     nombre = request.GET.get('nombre', None)
+class InputServs(CreateView):
+    model = Servs
+    success_url = '/view_servs'
+    template_name = 'home/input_servs.html'
+    fields = [ 'nombre', 
+              'apellido',
+              'email',
+              'profesion',
+              'servicio_ofrecido',
+              'servicio_detalle' ,
+              ]
     
-#     if nombre:
-#         personas = User.objects.filter(nombre__icontains=nombre)
-#     else:
-#         personas = User.objects.all()
+class EditServs(UpdateView):
+    model = Servs
+    success_url =   '/view_servs'                                   
+    template_name =  'home/edit_servs.html'                    
+    fields = [ 'nombre', 
+              'apellido',
+              'email',
+              'profesion',
+              'servicio_ofrecido',
+              'servicio_detalle' ,
+                ]
+
     
-#     formulario = BusquedaPersonaFormulario()
-    
-#     return render(request, 'home/view_user.html', {'personas': personas, 'formulario' : formulario})
+class DeleteServs(DeleteView):
+    model = Servs
+    success_url =   '/view_servs'                                
+    template_name =  'home/delete_servs.html'                    
+
+
 

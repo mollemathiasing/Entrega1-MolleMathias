@@ -2,20 +2,17 @@
 
 
 {% block title_pagina %}
-<title>Ingresar Usuario</title>
+<title>Iniciar sesión</title>
 {% endblock title_pagina %}
 
 
 {% block mi_contenido  %}
-<form action= {% url 'input_user' %} method = "POST">
+<form action= {% url 'login' %} method = "POST">
     {% csrf_token %}
     <table>
-        {{form}}            
+        {{formulario}}
     </table>
     
-    <button>Crear</button>
+    <button>Iniciar sesión</button>
 </form>
 {% endblock mi_contenido  %}
-
-
-

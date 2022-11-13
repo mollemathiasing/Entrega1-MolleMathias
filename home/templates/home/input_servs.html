@@ -1,0 +1,21 @@
+{% extends 'padres/base.html' %}
+
+
+{% block title_pagina %}
+<title>Ingresar Usuario</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido  %}
+<form action= {% url 'input_servs' %} method = "POST">
+    {% csrf_token %}
+    <table>
+        {{form}}            
+    </table>
+    
+    <button>Crear</button>
+</form>
+{% endblock mi_contenido  %}
+
+
+
