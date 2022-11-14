@@ -2,22 +2,18 @@
 
 
 {% block title_pagina %}
-<title>Ingresar Usuario</title>
+<title>Registro</title>
 {% endblock title_pagina %}
 
 
-
 {% block mi_contenido  %}
-<form action= {% url 'input_servs' %} method = "POST">
+<form action= {% url 'registrar' %} method = "POST">
     {% csrf_token %}
     <table>
-        {{form.media}}
-        {{form}}            
+        {{formulario}}
     </table>
     
-    <button>Crear</button>
+    <button>Registrar</button>
 </form>
 {% endblock mi_contenido  %}
-
-
 

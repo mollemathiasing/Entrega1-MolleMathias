@@ -6,6 +6,7 @@
 
 
 {% block mi_contenido %} 
+        
         <a class="navbar-brand" href = {% url 'input_servs' %}>Crear Servicio </a> 
         <p>Listado de servicios:</p>
 
@@ -26,7 +27,7 @@
                                         <a  href = {% url 'edit_servs' servs.id %}>Editar </a> 
                                                            
                                         <a  href = {% url 'delete_servs' servs.id %}>Eliminar </a> 
-                                                           
+                        </li>                               
                 {% endfor %}
         {% else %}
                 <p>No se encontro el campo buscado</p>

@@ -2,22 +2,17 @@
 
 
 {% block title_pagina %}
-<title>Ingresar Usuario</title>
+<title>Cambiar password</title>
 {% endblock title_pagina %}
 
 
-
 {% block mi_contenido  %}
-<form action= {% url 'input_servs' %} method = "POST">
+<form action= {% url 'cambiar_contrasenia' %} method = "POST">
     {% csrf_token %}
     <table>
-        {{form.media}}
-        {{form}}            
+        {{form}}
     </table>
     
-    <button>Crear</button>
+    <button>Cambiar password</button>
 </form>
 {% endblock mi_contenido  %}
-
-
-
